@@ -98,7 +98,6 @@ const Name = styled.div`
   padding: 20px;
   background-color: rgba(0, 0, 0, 0.6);
   & > div {
-    color: green;
     fontsize: 1em;
     & > .major {
       color: #05d7ea;
