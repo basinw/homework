@@ -10,7 +10,7 @@ import {
   Col,
   Title2,
   Name,
-  Button
+  ButtonShare as Button
 } from '../components/core/style'
 const RefContainer = props => (
   <div>
