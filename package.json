@@ -6,6 +6,7 @@
     "next": "^4.1.4",
     "react": "^16.1.1",
     "react-dom": "^16.1.1",
+    "react-facebook": "^4.1.1",
     "recompose": "^0.26.0",
     "styled-components": "^2.2.3"
   },

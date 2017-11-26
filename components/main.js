@@ -1,8 +1,15 @@
 import React from 'react'
 import { Title, Button, Tr, Table } from './core/style'
 
+import styled from 'styled-components'
+
+const Background = styled.div`
+  background-image: url('/static/images/img1.png');
+  background-size: contain;
+  /* width: 100vw; */
+`
 const Main = props => (
-  <div>
+  <Background>
     <div className="container">
       <div className="row">
         <div className="col text-center">
@@ -72,7 +79,7 @@ const Main = props => (
                 </tr>
               ) : (
                 props.listData.map((d, i) => (
-                  <tr key={i}>
+                  <tr key={i} onClick={() => props.redirect(d.interviewRef)}>
                     <td className="text-right">{d.firstName}</td>
                     <td className="">{d.lastName}</td>
                     <td className="text-center">{d.interviewRef}</td>
@@ -84,7 +91,7 @@ const Main = props => (
         </div>
       </div>
     </div>
-  </div>
+  </Background>
 )
 
 export default Main

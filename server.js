@@ -11,13 +11,6 @@ const handle = app.getRequestHandler()
 app.prepare().then(() => {
   const server = express()
 
-  if (process.env.NODE_ENV === 'PRODUCTION') {
-    server.use(express.static(path.resolve(__dirname, '.', 'build')))
-    server.get('/*', function(req, res) {
-      res.sendFile(path.join(__dirname, 'build', 'index.html'))
-    })
-  }
-
   server.get('/ref/:id', (req, res) => {
     return app.render(req, res, '/ref', { id: req.params.id })
   })

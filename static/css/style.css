@@ -11,8 +11,7 @@
 body {
 	
     background: #212933;
-    background-image: url('/static/images/img1.png');
-    background-size: contain;
+    
     color: #fff;
     font-family: 'Supermarket', sans-serif;
     }

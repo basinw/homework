@@ -1,6 +1,7 @@
 import { compose, withState, withHandlers, lifecycle } from 'recompose'
 import instance from '../libs/axios'
 import IndexContainer from './main'
+import Router from 'next/router'
 
 const compare = (a, b, c) => {
   let A = a[c],
@@ -36,32 +37,35 @@ const IndexCompose = compose(
     handleSearch: props => e => {
       let key = e.target.value
       key = key.toUpperCase()
-      console.log(key)
+      // console.log(key)
       let result = ''
       if (key.length === 0) {
         result = props.allData.filter(d => d.major === props.major)
-        console.log('if')
+        // console.log('if')
       } else {
-        console.log(props.allData)
+        // console.log(props.allData)
         result = props.allData.filter(
           d =>
             d.firstName.indexOf(key) > -1 ||
             d.interviewRef.indexOf(key) > -1 ||
             d.lastName.indexOf(key) > -1
         )
-        console.log('else')
+        // console.log('else')
       }
-      console.log(result)
+      // console.log(result)
       props.setListData(result)
     },
     handleKeyDown: props => e => {
-      console.log(e.key)
+      // console.log(e.key)
       if (e.key === 'Escape') {
         e.target.value = ''
         let rs = props.allData.filter(data => data.major === props.major)
         rs.sort((a, b) => compare(a, b, 'interviewRef'))
         props.setListData(rs)
       }
+    },
+    redirect: props => e => {
+      Router.push(`/ref/${e}`)
     }
   })
 )(IndexContainer)

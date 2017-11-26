@@ -2,8 +2,15 @@ import React from 'react'
 import Router from 'next/router'
 import instance from '../libs/axios'
 import { lifecycle, compose, withState } from 'recompose'
+import FacebookProvider, { Share } from 'react-facebook'
 
-import { FlexBox } from '../components/core/style'
+import {
+  FlexBox,
+  Background,
+  Col,
+  Title2,
+  Name
+} from '../components/core/style'
 const RefContainer = props => (
   <div>
     {props.load ? (
@@ -14,15 +21,44 @@ const RefContainer = props => (
           <FlexBox>no data</FlexBox>
         ) : (
           <div>
-            <div className="container">
-              <div className="row">
-                <div className="col-12">
-                  {props.data.firstName} {props.data.lastName}
-                  {props.data.interviewRef}
-                  {props.data.major}
+            <Background style={{ minHeight: '100vh' }}>
+              <div className="container">
+                <div className="row">
+                  <Col className="col-12 text-center">
+                    <div>
+                      <Title2>Congratulation!</Title2>
+                      <Name>
+                        {props.data.firstName} {props.data.lastName} <br />
+                        <div>
+                          ติดสัมภาษณ์ทีม&nbsp;
+                          <span className="major">{props.data.major}</span>
+                        </div>
+                        <FacebookProvider appId="1956888527661925">
+                          <Share
+                            href="http://bassup.tk:3001"
+                            quote={`
+                          "${props.data.firstName +
+                            ' ' +
+                            props.data
+                              .lastName}" ได้ติดสัมฯ YWC กับเค้าด้วยแหละ อยู่ทีม ${
+                              props.data.major
+                            } นะ :)
+                          `}
+                          >
+                            <button
+                              type="button"
+                              className="btn btn-lg btn-primary"
+                            >
+                              <i className="fa fa-facebook" /> Share
+                            </button>
+                          </Share>
+                        </FacebookProvider>
+                      </Name>
+                    </div>
+                  </Col>
                 </div>
               </div>
-            </div>
+            </Background>
           </div>
         )}
       </div>
@@ -36,12 +72,12 @@ export default compose(
   withState('load', 'setLoad', true),
   lifecycle({
     async componentWillMount() {
-      console.log(`>${this.props.data}<`)
+      //   console.log(`>${this.props.data}<`)
       let refId = this.props.url.query.id
       if (refId === null || refId === undefined) {
       } else {
         let data = await instance.get('/').then(res => res.data)
-        console.log(data)
+        // console.log(data)
         let index = data.findIndex(
           e => e.interviewRef.toLowerCase() === refId.toLowerCase()
         )

@@ -65,6 +65,11 @@ const Tr = styled.tr`
   }
 `
 
+const Background = styled.div`
+  background-image: url('/static/images/img1.png');
+  background-size: contain;
+`
+
 const Table = styled.table`
   color: #fff;
   box-shadow: 0px 0px 20px #888888;
@@ -74,4 +79,31 @@ const Table = styled.table`
     cursor: pointer;
   }
 `
-export { Title, Button, Tr, Table, FlexBox }
+
+const Col = styled.div`
+  font-size: 2em;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 70vh;
+`
+
+const Title2 = styled.div`
+  font-family: 'PWScratchedFont', sans-serif;
+  margin: 20px 0 10px;
+`
+
+const Name = styled.div`
+  /* font-size: 3em; */
+  padding: 20px;
+  background-color: rgba(0, 0, 0, 0.6);
+  & > div {
+    color: green;
+    fontsize: 1em;
+    & > .major {
+      color: #05d7ea;
+    }
+  }
+`
+
+export { Title, Button, Tr, Table, FlexBox, Background, Col, Name, Title2 }
