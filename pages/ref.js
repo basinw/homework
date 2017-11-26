@@ -9,7 +9,8 @@ import {
   Background,
   Col,
   Title2,
-  Name
+  Name,
+  Button
 } from '../components/core/style'
 const RefContainer = props => (
   <div>
@@ -45,12 +46,12 @@ const RefContainer = props => (
                             } นะ :)
                           `}
                           >
-                            <button
+                            <Button
                               type="button"
-                              className="btn btn-lg btn-primary"
+                              className="btn mt-3 btn-primary"
                             >
                               <i className="fa fa-facebook" /> Share
-                            </button>
+                            </Button>
                           </Share>
                         </FacebookProvider>
                       </Name>

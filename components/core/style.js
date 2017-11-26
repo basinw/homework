@@ -94,7 +94,7 @@ const Title2 = styled.div`
 `
 
 const Name = styled.div`
-  /* font-size: 3em; */
+  box-shadow: 0 0 20px #fff;
   padding: 20px;
   background-color: rgba(0, 0, 0, 0.6);
   & > div {
@@ -105,4 +105,20 @@ const Name = styled.div`
   }
 `
 
-export { Title, Button, Tr, Table, FlexBox, Background, Col, Name, Title2 }
+const ButtonShare = styled.button`
+  background: rgba(4, 220, 255, 0.6) !important;
+  border-color: transparent !important;
+`
+
+export {
+  Title,
+  Button,
+  Tr,
+  Table,
+  FlexBox,
+  Background,
+  Col,
+  Name,
+  Title2,
+  ButtonShare
+}
