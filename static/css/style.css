@@ -1,0 +1,31 @@
+@font-face{
+	font-family: 'PWScratchedFont';
+	src: url('../fonts/pw-scratched-font.ttf');
+}
+
+@font-face{
+	font-family: 'Supermarket';
+	src: url('../fonts/supermarket.ttf');
+}
+
+body {
+	
+    background: #212933;
+    background-image: url('/static/images/img1.png');
+    background-size: contain;
+    color: #fff;
+    font-family: 'Supermarket', sans-serif;
+    }
+
+::-webkit-scrollbar {
+  width: 0.7em;
+  height: 1em;
+
+}
+::-webkit-scrollbar-track-piece {
+ background: #999;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: #26C6DA;
+}
