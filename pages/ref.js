@@ -73,12 +73,10 @@ export default compose(
   withState('load', 'setLoad', true),
   lifecycle({
     async componentWillMount() {
-      //   console.log(`>${this.props.data}<`)
       let refId = this.props.url.query.id
       if (refId === null || refId === undefined) {
       } else {
-        let data = await instance.get('/').then(res => res.data)
-        // console.log(data)
+        let { data } = await instance.get('/')
         let index = data.findIndex(
           e => e.interviewRef.toLowerCase() === refId.toLowerCase()
         )

@@ -6,7 +6,6 @@ import styled from 'styled-components'
 const Background = styled.div`
   background-image: url('/static/images/img1.png');
   background-size: contain;
-  /* width: 100vw; */
 `
 const Main = props => (
   <Background>
@@ -57,6 +56,7 @@ const Main = props => (
           </Button>>
         </div>
       </div>
+
       <div className="row">
         <div className="col-12 col-md-6 mx-auto mt-4">
           <Table className="table table-hover table-dark">

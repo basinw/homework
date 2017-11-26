@@ -19,9 +19,9 @@ const IndexCompose = compose(
   withState('listData', 'setListData', []),
   lifecycle({
     async componentWillMount() {
-      let ywc_data = await instance.get('/').then(res => res.data)
-      let current_data = ywc_data.filter(d => d.major === this.props.major)
-      this.props.setAllData(ywc_data)
+      let { data } = await instance.get('/')
+      let current_data = data.filter(d => d.major === this.props.major)
+      this.props.setAllData(data)
       current_data.sort((a, b) => compare(a, b, 'interviewRef'))
       this.props.setListData(current_data)
     }
@@ -37,26 +37,20 @@ const IndexCompose = compose(
     handleSearch: props => e => {
       let key = e.target.value
       key = key.toUpperCase()
-      // console.log(key)
       let result = ''
       if (key.length === 0) {
         result = props.allData.filter(d => d.major === props.major)
-        // console.log('if')
       } else {
-        // console.log(props.allData)
         result = props.allData.filter(
           d =>
             d.firstName.indexOf(key) > -1 ||
             d.interviewRef.indexOf(key) > -1 ||
             d.lastName.indexOf(key) > -1
         )
-        // console.log('else')
       }
-      // console.log(result)
       props.setListData(result)
     },
     handleKeyDown: props => e => {
-      // console.log(e.key)
       if (e.key === 'Escape') {
         e.target.value = ''
         let rs = props.allData.filter(data => data.major === props.major)
