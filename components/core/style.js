@@ -68,6 +68,7 @@ const Tr = styled.tr`
 const Background = styled.div`
   background-image: url('/static/images/img1.png');
   background-size: contain;
+  min-height: 100vh;
 `
 
 const Table = styled.table`

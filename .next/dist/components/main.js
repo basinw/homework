@@ -21,8 +21,8 @@ var _jsxFileName = 'D:\\project\\ywc\\components\\main.js';
 
 var Background = _styledComponents2.default.div.withConfig({
   displayName: 'main__Background',
-  componentId: 's1m4m0ur-0'
-})(['background-image:url(\'/static/images/img1.png\');background-size:contain;']);
+  componentId: 's1e2iqz1-0'
+})(['background-image:url(\'/static/images/img1.png\');background-size:contain;min-height:100vh;']);
 var Main = function Main(props) {
   return _react2.default.createElement(Background, {
     __source: {
